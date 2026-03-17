@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using OrdenCompra.Api.Filter;
 using OrdenCompra.Application.Comandos;
 using OrdenCompra.Application.Consultas.Producto;
 using OrdenCompra.Application.Dto;
@@ -47,6 +48,7 @@ builder.Services.AddMediatR(c => c.RegisterServicesFromAssemblyContaining<Obtene
 // Jwt
 // Podemos configurar la llave en una variable de entorno para no dejar la llave del JWT expuesta en archivos
 JwtDto jwt = builder.Configuration.GetSection("Jwt").Get<JwtDto>() ?? new JwtDto();
+builder.Services.AddOptions<JwtDto>().BindConfiguration("Jwt");
 builder.Services.AddAuthentication(o =>
 {
     o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -67,15 +69,32 @@ builder.Services.AddAuthentication(o =>
 
 builder.Services.AddControllers();
 
+// Middleware
+builder.Services.AddControllers(c => c.Filters.Add<ApiFilterException>());
+
 // CORS
 builder.Services.AddCors(c => c.AddPolicy("CorsFront", p => p.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod()));
 
+// Swagger
+builder.Services.AddAuthentication();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
+
+app.UseStaticFiles();
+app.UseSwagger();
+app.UseSwaggerUI(s =>
+{
+    s.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
+    s.RoutePrefix = string.Empty;
+});
 
 // Configure the HTTP request pipeline.
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

@@ -1,9 +1,10 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OrdenCompra.Application.Comandos;
 using OrdenCompra.Application.Consultas.OrdenCompra;
 using OrdenCompra.Application.Dto;
-using OrdenCompra.Application.Handler;
 
 namespace OrdenCompra.Api.Controllers;
 
@@ -11,6 +12,7 @@ namespace OrdenCompra.Api.Controllers;
 /// Controlador para las ordenes de compra
 /// </summary>
 /// <param name="mediator">Mediator CQRS</param>
+[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 [Route("api/[controller]")]
 [ApiController]
 public class OrdenCompraController(IMediator mediator) : ControllerBase
@@ -73,4 +75,5 @@ public class OrdenCompraController(IMediator mediator) : ControllerBase
         RespuestaGenerica<IEnumerable<OrdenDto>> resultado = await mediator.Send(new ObtenerOrdenesCompraQuery());
         return StatusCode(resultado.StatusCode, resultado);
     }
+
 }

@@ -10,6 +10,6 @@ public class OrdenItem
     public int Cantidad { get; set; }
     public decimal PrecioUnitario { get; set; }
     public int OrdenId { get; set; }
-    public Orden Orden { get; set; } = new Orden();
-    public Producto Producto { get; set; } = new Producto();
+    public Orden Orden { get; set; }
+    public Producto Producto { get; set; }
 }

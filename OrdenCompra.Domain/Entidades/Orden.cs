@@ -10,7 +10,7 @@ public class Orden
     public DateTime Fecha { get; private set; } = DateTime.Now;
     public string Estado { get; private set; } = "CREADA";
     public string Descripcion { get; set; } = "";
-    public ICollection<OrdenItem> OrdenItems { get; private set; } = new HashSet<OrdenItem>();
+    public ICollection<OrdenItem> OrdenItems { get; private set; }
 
     /// <summary>
     /// Agregar ítem

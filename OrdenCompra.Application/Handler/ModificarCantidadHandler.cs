@@ -11,11 +11,23 @@ namespace OrdenCompra.Application.Handler;
 /// </summary>
 public class ModificarCantidadHandler(IOrdenItemRepository ordenItemRepository) : IRequestHandler<ModificarCantidadCommand, RespuestaGenerica<int>>
 {
+    /// <summary>
+    /// Modificar cantidades
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns>Número de ítems modificados</returns>
     public async Task<RespuestaGenerica<int>> Handle(ModificarCantidadCommand request, CancellationToken cancellationToken)
     {
+        List<OrdenItemDto> items = request.Items.ToList();
+        for (int i = 0; i < items.Count; i++)
+        {
+            OrdenItemDto item = items[i];
+            await ordenItemRepository.ActualizarCantidad(item.Id, item.Cantidad);
+        }
         return new RespuestaGenerica<int>
         {
-            Resultado = await ordenItemRepository.ActualizarCantidad(request.OrdenItemId, request.Cantidad),
+            Resultado = items.Count,
             Mensaje = string.Format(MensajeApplication.Actualizar, "la cantidad")
         };
     }

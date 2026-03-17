@@ -9,6 +9,6 @@ public class Producto
     public string Nombre { get; set; } = "";
     public decimal Precio { get; set; }
     public string ImagenUrl { get; set; } = "";
-    public ICollection<OrdenItem> OrdenItems { get; set; } = new HashSet<OrdenItem>();
-    public ICollection<Inventario> Inventarios { get; set; } = new HashSet<Inventario>();
+    public ICollection<OrdenItem> OrdenItems { get; set; }
+    public ICollection<Inventario> Inventarios { get; set; }
 }

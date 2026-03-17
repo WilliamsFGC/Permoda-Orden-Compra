@@ -1,4 +1,6 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OrdenCompra.Application.Consultas.Producto;
 using OrdenCompra.Application.Dto;
@@ -8,6 +10,7 @@ namespace OrdenCompra.Api.Controllers
     /// <summary>
     /// Controlador de productos
     /// </summary>
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductoController(IMediator mediator) : ControllerBase

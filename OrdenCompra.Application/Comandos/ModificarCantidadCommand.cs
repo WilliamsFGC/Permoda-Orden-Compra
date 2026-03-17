@@ -8,4 +8,4 @@ namespace OrdenCompra.Application.Comandos;
 /// </summary>
 /// <param name="OrdenItemId">Id del ítem de la orden de compra</param>
 /// <param name="cantidad">Cantidad a establecer</param>
-public record ModificarCantidadCommand(int OrdenItemId, int Cantidad) : IRequest<RespuestaGenerica<int>>;
+public record ModificarCantidadCommand(IEnumerable<OrdenItemDto> Items) : IRequest<RespuestaGenerica<int>>;
