@@ -22,7 +22,7 @@ namespace OrdenCompra.Application.Recursos {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class MensajeApplication {
+    public class MensajeApplication {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace OrdenCompra.Application.Recursos {
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OrdenCompra.Application.Recursos.MensajeApplication", typeof(MensajeApplication).Assembly);
@@ -51,7 +51,7 @@ namespace OrdenCompra.Application.Recursos {
         ///   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace OrdenCompra.Application.Recursos {
         /// <summary>
         ///   Busca una cadena traducida similar a Se ha actualizado {0} correctamente.
         /// </summary>
-        internal static string Actualizar {
+        public static string Actualizar {
             get {
                 return ResourceManager.GetString("Actualizar", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace OrdenCompra.Application.Recursos {
         /// <summary>
         ///   Busca una cadena traducida similar a Se ha agregado {0} correctamente.
         /// </summary>
-        internal static string Agregar {
+        public static string Agregar {
             get {
                 return ResourceManager.GetString("Agregar", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace OrdenCompra.Application.Recursos {
         /// <summary>
         ///   Busca una cadena traducida similar a Orden de compra {0} confirmada.
         /// </summary>
-        internal static string ConfirmarOrdenCompra {
+        public static string ConfirmarOrdenCompra {
             get {
                 return ResourceManager.GetString("ConfirmarOrdenCompra", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace OrdenCompra.Application.Recursos {
         /// <summary>
         ///   Busca una cadena traducida similar a No se puede confirmar la orden de compra {0}. no tiene ítems agregados.
         /// </summary>
-        internal static string ConfirmarOrdenCompraError {
+        public static string ConfirmarOrdenCompraError {
             get {
                 return ResourceManager.GetString("ConfirmarOrdenCompraError", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace OrdenCompra.Application.Recursos {
         /// <summary>
         ///   Busca una cadena traducida similar a Se ha creado exitosamente {0}.
         /// </summary>
-        internal static string Crear {
+        public static string Crear {
             get {
                 return ResourceManager.GetString("Crear", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace OrdenCompra.Application.Recursos {
         /// <summary>
         ///   Busca una cadena traducida similar a Se ha eliminado {0} correctamente.
         /// </summary>
-        internal static string Eliminar {
+        public static string Eliminar {
             get {
                 return ResourceManager.GetString("Eliminar", resourceCulture);
             }
